@@ -1,0 +1,284 @@
+/* ============================================================
+   European Banking Churn Analytics — Dashboard Stylesheet
+   Dark-tinted premium theme with rounded chart aesthetic
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Root & Body ─────────────────────────────────────────── */
+html, body, .stApp {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+    background: #13181F !important;   /* near-black — dark banking premium */
+}
+
+/* Main content area padding */
+.main .block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+[data-testid="stSidebar"] {
+    background: #0A0F16 !important;
+    border-right: 1px solid #1C2733 !important;
+}
+
+[data-testid="stSidebar"] > div:first-child {
+    padding-top: 0 !important;
+}
+
+/* Sidebar text */
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] div {
+    color: #CBD5E1 !important;
+}
+
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3 {
+    color: #F1F5F9 !important;
+}
+
+/* ── Sidebar Metric ──────────────────────────────────────── */
+[data-testid="stSidebar"] [data-testid="metric-container"] {
+    background: #161D27 !important;
+    border: 1px solid #1C2D3F !important;
+    border-radius: 10px !important;
+    padding: 12px 16px !important;
+    box-shadow: none !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stMetricValue"] {
+    color: #F1F5F9 !important;
+    font-size: 22px !important;
+}
+
+[data-testid="stSidebar"] [data-testid="stMetricLabel"] {
+    color: #64748B !important;
+    font-size: 12px !important;
+}
+
+/* ── DROPDOWN FIX ────────────────────────────────────────── */
+[data-testid="stSidebar"] .stMultiSelect > div > div {
+    background: #161D27 !important;
+    border: 1px solid #1C2D3F !important;
+    border-radius: 8px !important;
+    min-height: 42px !important;
+}
+
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] {
+    min-height: 42px !important;
+}
+
+[data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] > div:first-child {
+    background: #161D27 !important;
+    border-color: #1C2D3F !important;
+    min-height: 42px !important;
+    padding: 4px 8px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Selected tags */
+[data-testid="stSidebar"] [data-baseweb="tag"] {
+    background: #0F2744 !important;
+    border: 1px solid #1D4ED8 !important;
+    border-radius: 6px !important;
+    margin: 2px !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="tag"] span {
+    color: #93C5FD !important;
+    font-size: 11px !important;
+}
+
+[data-testid="stSidebar"] [data-baseweb="tag"] [role="presentation"] {
+    color: #93C5FD !important;
+}
+
+/* Dropdown portal */
+[data-baseweb="popover"] { z-index: 99999 !important; }
+
+[data-baseweb="menu"] {
+    background: #161D27 !important;
+    border: 1px solid #1C2D3F !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+}
+
+[data-baseweb="menu"] li {
+    background: #161D27 !important;
+    color: #CBD5E1 !important;
+    padding: 10px 14px !important;
+    font-size: 13px !important;
+}
+
+[data-baseweb="menu"] li:hover {
+    background: #1C2D3F !important;
+    color: #F1F5F9 !important;
+}
+
+[data-baseweb="menu"] [aria-selected="true"] {
+    background: #0F2744 !important;
+    color: #93C5FD !important;
+}
+
+/* Selectbox */
+[data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
+    background: #161D27 !important;
+    border-color: #1C2D3F !important;
+    border-radius: 8px !important;
+    color: #CBD5E1 !important;
+}
+
+/* ── KPI Cards ───────────────────────────────────────────── */
+[data-testid="metric-container"] {
+    background: #1A2130 !important;
+    padding: 20px 24px !important;
+    border-radius: 18px !important;
+    border: 1px solid #1E2D40 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.35) !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease !important;
+}
+
+[data-testid="metric-container"]:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.45) !important;
+}
+
+[data-testid="stMetricLabel"] {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #475569 !important;
+    letter-spacing: 0.07em !important;
+    text-transform: uppercase !important;
+}
+
+[data-testid="stMetricValue"] {
+    font-size: 28px !important;
+    font-weight: 800 !important;
+    color: #E2E8F0 !important;
+    line-height: 1.15 !important;
+}
+
+/* ── Chart / Plotly Containers ───────────────────────────── */
+[data-testid="stPlotlyChart"] {
+    background: #1A2130 !important;
+    border-radius: 18px !important;
+    padding: 10px !important;
+    border: 1px solid #1E2D40 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Plotly SVG itself — transparent so our bg shows */
+[data-testid="stPlotlyChart"] .js-plotly-plot .plotly,
+[data-testid="stPlotlyChart"] .js-plotly-plot .plotly .main-svg {
+    border-radius: 14px !important;
+}
+
+/* ── Tabs ────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+    background: #161D27 !important;
+    padding: 5px !important;
+    border-radius: 16px !important;
+    gap: 2px !important;
+    border: 1px solid #1C2733 !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    color: #475569 !important;
+    padding: 8px 20px !important;
+    border: none !important;
+    background: transparent !important;
+    transition: all 0.15s ease !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: #1A2130 !important;
+    color: #E2E8F0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
+}
+
+.stTabs [data-baseweb="tab-highlight"] { display: none !important; }
+
+/* Tab content area */
+.stTabs [data-baseweb="tab-panel"] {
+    padding-top: 20px !important;
+}
+
+/* ── Section Headers ─────────────────────────────────────── */
+.sec-head {
+    font-size: 15px;
+    font-weight: 700;
+    color: #CBD5E1;
+    margin: 0 0 2px 0;
+}
+
+.sec-sub {
+    font-size: 12px;
+    color: #475569;
+    margin: 0 0 12px 0;
+}
+
+/* ── Buttons ─────────────────────────────────────────────── */
+.stButton > button {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    padding: 8px 18px !important;
+    border: 1px solid #1C2D3F !important;
+    background: #161D27 !important;
+    color: #CBD5E1 !important;
+    width: 100% !important;
+    transition: all 0.15s ease !important;
+}
+
+.stButton > button:hover {
+    background: #1C2D3F !important;
+    border-color: #2D4A63 !important;
+    color: #F1F5F9 !important;
+}
+
+/* ── Info / Alert / Success boxes ───────────────────────── */
+[data-testid="stAlert"] {
+    border-radius: 12px !important;
+    background: #161D27 !important;
+    border: 1px solid #1C2D3F !important;
+    color: #94A3B8 !important;
+}
+
+/* ── Divider ─────────────────────────────────────────────── */
+hr {
+    border-color: #1C2733 !important;
+    margin: 20px 0 !important;
+}
+
+/* ── Dataframe / Table ───────────────────────────────────── */
+[data-testid="stDataFrame"] {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    border: 1px solid #1E2D40 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* ── Filter label helper ─────────────────────────────────── */
+.filter-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #475569 !important;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* ── Hide Streamlit chrome ───────────────────────────────── */
+footer { visibility: hidden !important; }
+#MainMenu { visibility: hidden !important; }
+[data-testid="stToolbar"] { display: none !important; }
+header[data-testid="stHeader"] { background: transparent !important; }
