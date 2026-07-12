@@ -195,8 +195,7 @@ with st.sidebar:
     cm1, cm2 = st.columns(2)
     cm1.metric("Customers",  f"{len(fdf):,}")
     cm2.metric("Filters On", n_active)
-    st.info(f"🎯 {n_active} filter(s) active") if n_active else st.success("Showing all customers")
-
+  
 # ══════════════════════════════════════════════════════════
 # HELPERS
 # ══════════════════════════════════════════════════════════
@@ -325,6 +324,30 @@ k5.metric("💰 Avg Balance",      f"${avg_bal:,.0f}")
 k6.metric("⚡ Active Members",   f"{active_pct:.1f}%")
 
 st.markdown("<div style='height:10px'></div>", unsafe_allow_html=True)
+
+# ══════════════════════════════════════════════════════════
+# KEY INSIGHTS SUMMARY
+# ══════════════════════════════════════════════════════════
+geo_top = churn_by("Geography", fdf).sort_values("Churn Rate (%)", ascending=False).iloc[0]
+age_top = churn_by("Age_Group", fdf).sort_values("Churn Rate (%)", ascending=False).iloc[0]
+gen_top = churn_by("Gender", fdf).sort_values("Churn Rate (%)", ascending=False).iloc[0]
+act_df = churn_by("Active_Label", fdf)
+inactive_rate = float(act_df.loc[act_df["Active_Label"] == "Inactive", "Churn Rate (%)"].iloc[0]) if not act_df.loc[act_df["Active_Label"] == "Inactive"].empty else None
+
+st.markdown(f"""
+<div style="background:#161D27; border:1px solid #1E2D40; border-radius:16px;
+            padding:16px 18px; margin-bottom:18px; box-shadow:0 4px 16px rgba(0,0,0,0.3);">
+    <div style="font-size:13px; font-weight:700; color:#E2E8F0; margin-bottom:6px;">
+        🔎 Key business insights
+    </div>
+    <div style="font-size:13px; color:#94A3B8; line-height:1.6;">
+        <b>Top churn risk segments:</b> {geo_top['Geography']} ({geo_top['Churn Rate (%)']:.1f}% churn),
+        {age_top['Age_Group']} ({age_top['Churn Rate (%)']:.1f}%), and
+        {gen_top['Gender']} customers ({gen_top['Churn Rate (%)']:.1f}%).
+        {f"Inactive members are also elevated at {inactive_rate:.1f}% churn." if inactive_rate is not None else ""}
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════
 # TABS
