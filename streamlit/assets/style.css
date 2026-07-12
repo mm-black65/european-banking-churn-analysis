@@ -1,6 +1,5 @@
 /* ============================================================
    European Banking Churn Analytics — Dashboard Stylesheet
-   Dark-tinted premium theme with rounded chart aesthetic
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
@@ -8,16 +7,15 @@
 /* ── Root & Body ─────────────────────────────────────────── */
 html, body, .stApp {
     font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
-    background: #13181F !important;   /* near-black — dark banking premium */
+    background: #13181F !important;
 }
 
-/* Main content area padding */
 .main .block-container {
     padding-top: 1.5rem !important;
     padding-bottom: 2rem !important;
 }
 
-/* ── Sidebar ─────────────────────────────────────────────── */
+/* ── Sidebar shell ───────────────────────────────────────── */
 [data-testid="stSidebar"] {
     background: #0A0F16 !important;
     border-right: 1px solid #1C2733 !important;
@@ -60,77 +58,143 @@ html, body, .stApp {
     font-size: 12px !important;
 }
 
-/* ── DROPDOWN FIX ────────────────────────────────────────── */
-[data-testid="stSidebar"] .stMultiSelect > div > div {
+/* ════════════════════════════════════════════════════════════
+   GLOBAL DROPDOWN STYLING
+   All [data-baseweb] selectors are intentionally NOT scoped
+   to the sidebar because Streamlit renders dropdown portals
+   at the document root — outside the sidebar DOM — so sidebar
+   scoping never reaches them.
+   ════════════════════════════════════════════════════════════ */
+
+/* ── Input box (closed state) — multiselect & selectbox ──── */
+[data-baseweb="select"] > div:first-child,
+[data-baseweb="select"] > div {
     background: #161D27 !important;
     border: 1px solid #1C2D3F !important;
-    border-radius: 8px !important;
-    min-height: 42px !important;
-}
-
-[data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] {
-    min-height: 42px !important;
-}
-
-[data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] > div:first-child {
-    background: #161D27 !important;
-    border-color: #1C2D3F !important;
-    min-height: 42px !important;
+    border-radius: 10px !important;
+    min-height: 44px !important;
     padding: 4px 8px !important;
     flex-wrap: wrap !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02) !important;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
 }
 
-/* Selected tags */
-[data-testid="stSidebar"] [data-baseweb="tag"] {
+[data-baseweb="select"] > div:first-child:hover,
+[data-baseweb="select"] > div:hover {
+    border-color: #2D4A63 !important;
+}
+
+/* Focused / open state border glow */
+[data-baseweb="select"] > div:first-child:focus-within,
+[data-baseweb="select"] > div:focus-within {
+    border-color: #1D4ED8 !important;
+    box-shadow: 0 0 0 2px rgba(29,78,216,0.2), inset 0 1px 0 rgba(255,255,255,0.02) !important;
+}
+
+/* Input text colour inside select */
+[data-baseweb="select"] input,
+[data-baseweb="select"] [data-baseweb="input"],
+[data-baseweb="select"] [role="combobox"] {
+    color: #CBD5E1 !important;
+    background: transparent !important;
+    caret-color: #93C5FD !important;
+}
+
+/* Placeholder text */
+[data-baseweb="select"] [data-baseweb="input"]::placeholder {
+    color: #475569 !important;
+}
+
+/* Single-value / multi-value display text */
+[data-baseweb="select"] [data-baseweb="select-value-container"] span,
+[data-baseweb="select"] [data-baseweb="single-value"],
+[data-baseweb="select"] [data-baseweb="multi-value"] span {
+    color: #CBD5E1 !important;
+}
+
+/* Dropdown arrow icon */
+[data-baseweb="select"] svg {
+    fill: #475569 !important;
+}
+
+/* ── Selected tags (multiselect pills) ───────────────────── */
+[data-baseweb="tag"] {
     background: #0F2744 !important;
     border: 1px solid #1D4ED8 !important;
     border-radius: 6px !important;
     margin: 2px !important;
+    padding: 2px 4px !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="tag"] span {
+[data-baseweb="tag"] span {
     color: #93C5FD !important;
     font-size: 11px !important;
+    font-weight: 500 !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="tag"] [role="presentation"] {
+/* Tag × close button */
+[data-baseweb="tag"] [role="presentation"],
+[data-baseweb="tag"] button {
     color: #93C5FD !important;
+    opacity: 0.7;
 }
 
-/* Dropdown portal */
-[data-baseweb="popover"] { z-index: 99999 !important; }
+[data-baseweb="tag"] [role="presentation"]:hover,
+[data-baseweb="tag"] button:hover {
+    opacity: 1;
+    color: #BFDBFE !important;
+}
 
-[data-baseweb="menu"] {
+/* ── Dropdown portal (the list that opens) ───────────────── */
+[data-baseweb="popover"] {
+    z-index: 99999 !important;
+}
+
+[data-baseweb="menu"],
+[data-baseweb="popover"] [data-baseweb="menu"] {
     background: #161D27 !important;
     border: 1px solid #1C2D3F !important;
     border-radius: 12px !important;
     overflow: hidden !important;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.6) !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.65) !important;
+    padding: 4px !important;
 }
 
-[data-baseweb="menu"] li {
+/* Each option row */
+[data-baseweb="menu"] li,
+[data-baseweb="menu"] [role="option"],
+[data-baseweb="menu"] [role="listbox"] li {
     background: #161D27 !important;
     color: #CBD5E1 !important;
-    padding: 10px 14px !important;
+    padding: 9px 14px !important;
     font-size: 13px !important;
+    border-radius: 8px !important;
+    margin: 1px 0 !important;
+    transition: background 0.1s ease !important;
+    cursor: pointer !important;
 }
 
-[data-baseweb="menu"] li:hover {
+[data-baseweb="menu"] li:hover,
+[data-baseweb="menu"] [role="option"]:hover,
+[data-baseweb="menu"] [role="listbox"] li:hover {
     background: #1C2D3F !important;
     color: #F1F5F9 !important;
 }
 
-[data-baseweb="menu"] [aria-selected="true"] {
+/* Already-selected option in open list */
+[data-baseweb="menu"] [aria-selected="true"],
+[data-baseweb="menu"] li[aria-selected="true"] {
     background: #0F2744 !important;
     color: #93C5FD !important;
 }
 
-/* Selectbox */
-[data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
-    background: #161D27 !important;
-    border-color: #1C2D3F !important;
-    border-radius: 8px !important;
-    color: #CBD5E1 !important;
+[data-baseweb="menu"] [aria-selected="true"]:hover {
+    background: #1a3a6b !important;
+}
+
+/* Checkmark / tick icon inside option */
+[data-baseweb="menu"] svg {
+    fill: #93C5FD !important;
 }
 
 /* ── KPI Cards ───────────────────────────────────────────── */
@@ -163,7 +227,7 @@ html, body, .stApp {
     line-height: 1.15 !important;
 }
 
-/* ── Chart / Plotly Containers ───────────────────────────── */
+/* ── Chart containers ────────────────────────────────────── */
 [data-testid="stPlotlyChart"] {
     background: #1A2130 !important;
     border-radius: 18px !important;
@@ -172,8 +236,6 @@ html, body, .stApp {
     box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
 }
 
-/* Plotly SVG itself — transparent so our bg shows */
-[data-testid="stPlotlyChart"] .js-plotly-plot .plotly,
 [data-testid="stPlotlyChart"] .js-plotly-plot .plotly .main-svg {
     border-radius: 14px !important;
 }
@@ -206,12 +268,11 @@ html, body, .stApp {
 
 .stTabs [data-baseweb="tab-highlight"] { display: none !important; }
 
-/* Tab content area */
 .stTabs [data-baseweb="tab-panel"] {
     padding-top: 20px !important;
 }
 
-/* ── Section Headers ─────────────────────────────────────── */
+/* ── Section headers ─────────────────────────────────────── */
 .sec-head {
     font-size: 15px;
     font-weight: 700;
@@ -244,7 +305,7 @@ html, body, .stApp {
     color: #F1F5F9 !important;
 }
 
-/* ── Info / Alert / Success boxes ───────────────────────── */
+/* ── Alert / info boxes ──────────────────────────────────── */
 [data-testid="stAlert"] {
     border-radius: 12px !important;
     background: #161D27 !important;
@@ -258,7 +319,7 @@ hr {
     margin: 20px 0 !important;
 }
 
-/* ── Dataframe / Table ───────────────────────────────────── */
+/* ── Dataframe ───────────────────────────────────────────── */
 [data-testid="stDataFrame"] {
     border-radius: 16px !important;
     overflow: hidden !important;
@@ -266,7 +327,7 @@ hr {
     box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
 }
 
-/* ── Filter label helper ─────────────────────────────────── */
+/* ── Filter label ────────────────────────────────────────── */
 .filter-label {
     font-size: 11px;
     font-weight: 700;
