@@ -1,4 +1,4 @@
-# Customer Segmentation & Churn Pattern Analytics in European Banking
+# 🏦 Customer Segmentation & Churn Pattern Analytics in European Banking
 
 ## Live Demo
 
@@ -29,125 +29,75 @@ Without structured analytics, retention strategies remain reactive and less effe
 
 ---
 
-## Objectives
+## 🎯 Objectives
 
-### Primary Objectives
-
-* Measure the overall customer churn rate.
-* Analyze churn distribution across customer segments.
-* Compare churn behavior across European regions.
-
-### Secondary Objectives
-
-* Understand churn among high-value customers.
-* Evaluate engagement and tenure patterns.
-* Support strategic planning and marketing decisions through data-driven insights.
+- Measure overall customer churn rate
+- Perform customer segmentation analysis
+- Compare churn across countries and demographics
+- Analyze high-value customer churn
+- Evaluate customer engagement and tenure patterns
+- Develop executive KPIs for decision makers
+- Build an interactive Streamlit Business Intelligence dashboard
 
 ---
 
-## Dataset Description
+## 📊 Dashboard Features
 
-The dataset contains customer-level information from a European bank.
+### Executive Dashboard
 
-| Column          | Description                                 |
-| --------------- | ------------------------------------------- |
-| CustomerId      | Unique customer identifier                  |
-| Surname         | Customer surname                            |
-| CreditScore     | Customer creditworthiness score             |
-| Geography       | Customer country (France, Germany, Spain)   |
-| Gender          | Male or Female                              |
-| Age             | Customer age                                |
-| Tenure          | Number of years with the bank               |
-| Balance         | Account balance                             |
-| NumOfProducts   | Number of bank products used                |
-| HasCrCard       | Credit card ownership status                |
-| IsActiveMember  | Customer activity indicator                 |
-| EstimatedSalary | Estimated annual salary                     |
-| Exited          | Churn indicator (0 = Retained, 1 = Churned) |
+- Executive KPI cards
+- Customer churn overview
+- Customer retention summary
+- Average balance analysis
+- Active customer percentage
+- Dynamic business insights
 
----
+### Geography Analytics
 
-## Project Workflow
+- Country-wise churn comparison
+- Customer distribution by country
+- Country × Age heatmap
+- Country × Gender heatmap
+- Country × Tenure analysis
 
-The project follows a structured analytics pipeline:
+### Demographic Analytics
 
-1. Data Collection and Validation
-2. Data Cleaning and Preparation
-3. Exploratory Data Analysis (EDA)
-4. Customer Segmentation
-5. Churn Distribution Analysis
-6. KPI Generation
-7. Dashboard Development
-8. Business Insights and Recommendations
+- Age Group analysis
+- Gender comparison
+- Credit Score segmentation
+- Customer activity analysis
+- Product ownership analysis
 
----
+### Financial Analytics
 
-## Customer Segmentation Strategy
+- Balance distribution
+- Salary analysis
+- Premium customer identification
+- High-value customer churn
+- Revenue risk estimation
 
-### Geographic Segmentation
+### Customer Segmentation
 
-* France
-* Germany
-* Spain
+- Geographic segmentation
+- Age segmentation
+- Credit Score bands
+- Balance segmentation
+- Tenure segmentation
 
-### Age Segmentation
+### Interactive Features
 
-* Below 30 Years
-* 30–45 Years
-* 46–60 Years
-* Above 60 Years
-
-### Credit Score Segmentation
-
-* Low Credit Score
-* Medium Credit Score
-* High Credit Score
-
-### Tenure Segmentation
-
-* New Customers
-* Mid-Term Customers
-* Long-Term Customers
-
-### Balance Segmentation
-
-* Zero Balance Customers
-* Low Balance Customers
-* High Balance Customers
+- Multi-level filtering
+- Dynamic KPI updates
+- Interactive Plotly visualizations
+- Executive business insights
+- Professional dark theme UI
 
 ---
 
-## Key Performance Indicators (KPIs)
+## 📁 Project Structure
 
-The following KPIs are used to evaluate churn behavior:
-
-* Overall Churn Rate
-* Segment Churn Rate
-* High-Value Customer Churn Ratio
-* Geographic Risk Index
-* Engagement Drop Indicator
-* Customer Activity Rate
-* Average Customer Balance
-
----
-
-## Features
-
-* Customer churn analysis
-* Customer segmentation by demographics and financial profile
-* Geography-wise churn comparison
-* Age and tenure-based churn insights
-* High-value customer churn exploration
-* Interactive Streamlit dashboard
-* Dynamic KPI tracking and visualization
-* Data-driven business recommendations
-
----
-
-## Project Structure
-
-```text
-customer-segmentation-churn-analytics/
+```
+European-Banking-Churn-Analytics/
 │
 ├── data/
 │   └── Churn_Modelling.csv
@@ -157,108 +107,182 @@ customer-segmentation-churn-analytics/
 │       └── img1 (3).png
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb
-│   ├── 02_exploratory_data_analysis.ipynb
-│   ├── 03_customer_segmentation.ipynb
-│   └── 04_churn_analysis.ipynb
+│   ├── 02_eda.ipynb
+│   ├── 03_churn_analysis.ipynb
+│   ├── 04_customer_seg.ipynb
+│   └── 05_kpi_executive_analytics.ipynb
 │
-├── dashboard/
-│   └── app.py
-│
-├── images/
-│   └── dashboard_preview.png
-│
-├── reports/
-│   ├── research_paper.pdf
-│   └── executive_summary.pdf
+├── streamlit/
+│   ├── app.py
+│   ├── utils.py
+│   ├── assets/
+│   │    └── style.css
+│   └── pages/
+│        ├── executive_kpis.csv
+│        ├── overall_kpis.csv
+│        ├── financial_kpis.csv
+│        └── geographic_risk.csv
 │
 ├── requirements.txt
-├── README.md
-└── .gitignore
+└── README.md
 ```
 
 ---
 
-## Installation
+## 📈 Analytical Workflow
 
-### Clone the Repository
+### 1. Data Ingestion & Validation
+
+- Dataset loading
+- Missing value verification
+- Duplicate detection
+- Data type validation
+- Binary variable consistency checks
+
+### 2. Data Cleaning
+
+- Removed non-analytical attributes
+- Data validation
+- Feature engineering
+- Segmentation variable creation
+
+### 3. Exploratory Data Analysis
+
+- Customer demographics
+- Financial distribution
+- Churn visualization
+- Correlation analysis
+- Feature relationship exploration
+
+### 4. Customer Segmentation
+
+- Geography
+- Age Groups
+- Credit Score Bands
+- Balance Segments
+- Tenure Groups
+
+### 5. Churn Analytics
+
+- Overall churn rate
+- Segment-wise churn
+- Customer profile comparison
+- Geographic risk exposure
+- Financial impact assessment
+
+### 6. Executive KPI Analytics
+
+- Overall Churn Rate
+- High Value Customer Ratio
+- Geographic Risk Index
+- Customer Engagement
+- Financial Exposure
+- Executive Business KPIs
+
+### 7. Interactive Dashboard
+
+- Real-time filtering
+- Interactive charts
+- Executive insights
+- Business Intelligence reporting
+
+---
+
+## 📊 Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Plotly
+- Streamlit
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
+
+---
+
+## 📷 Dashboard Preview
+
+### Executive Dashboard
+
+> *(Insert dashboard screenshot here)*
+
+### Geographic Analytics
+
+> *(Insert dashboard screenshot here)*
+
+### Customer Segmentation
+
+> *(Insert dashboard screenshot here)*
+
+---
+
+## 🚀 Installation
+
+Clone the repository
 
 ```bash
-git clone https://github.com/your-username/customer-segmentation-churn-analytics.git
-
-cd customer-segmentation-churn-analytics
+git clone https://github.com/yourusername/european-banking-churn-analysis.git
 ```
 
-### Create a Virtual Environment
+Move into the project directory
 
 ```bash
-python -m venv venv
+cd european-banking-churn-analysis
 ```
 
-### Activate the Virtual Environment
-
-**Windows**
-
-```bash
-venv\Scripts\activate
-```
-
-**Linux / macOS**
-
-```bash
-source venv/bin/activate
-```
-
-### Install Required Dependencies
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-## How to Run the Dashboard
-
-Launch the Streamlit application:
+Run the Streamlit application
 
 ```bash
-streamlit run dashboard/app.py
-```
+cd streamlit
 
-After running the command, open the following URL in your browser:
-
-```text
-http://localhost:8501
+streamlit run app.py
 ```
 
 ---
 
-## Technologies Used
+## 📖 How to Use
 
-* Python
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
-* Plotly
-* Streamlit
-* Jupyter Notebook
-* Git & GitHub
+1. Launch the Streamlit dashboard.
+2. Select customer filters from the sidebar.
+3. Explore executive KPIs.
+4. Navigate through dashboard sections using the tabs.
+5. Analyze customer churn across geography, demographics, financial metrics, and customer segments.
+6. Use interactive charts to identify high-risk customer groups and business opportunities.
 
 ---
 
-## Expected Outcomes
+## 💼 Business Insights
 
-This project aims to:
+The analysis reveals several strategic findings:
 
-* Identify customer segments with the highest churn risk.
-* Compare churn behavior across countries and demographics.
-* Evaluate churn among high-value customers.
-* Provide actionable recommendations for customer retention.
-* Support business decision-making through data analytics.
+- Germany exhibits the highest customer churn rate.
+- Middle-aged customers contribute disproportionately to churn.
+- Inactive members show significantly higher churn probability.
+- Customers owning three or more products experience elevated churn.
+- Premium customers represent substantial financial exposure despite smaller population size.
+- Geographic and demographic segmentation enables targeted retention campaigns.
 
 ---
 
-## Future Enhancements
+## 📌 Business Recommendations
+
+- Prioritize customer retention initiatives in Germany.
+- Improve engagement among inactive members.
+- Develop personalized retention programs for premium customers.
+- Strengthen onboarding strategies for new customers.
+- Promote cross-selling for customers with limited product adoption.
+- Implement proactive churn monitoring using executive KPIs.
+
+---
+
+## 📚 Future Enhancements
 
 Potential future improvements include:
 
@@ -337,11 +361,15 @@ The dashboard is organized into multiple interactive sections:
 | 📁 Segments | Identify high-risk customer combinations |
 | 💡 Insights | Translate analytical findings into business recommendations |
 
-## Author
+## 👨‍💻 Developed By
 
 **Mahi Ahalawat**
 
-Data Analytics Project – Customer Segmentation & Churn Pattern Analytics in European Banking
+Machine Learning Intern — Unified Mentor
+
+GitHub: https://github.com/mm-black65
+
+Portfolio: https://mahiportfolio-five.vercel.app/
 
 ---
 
