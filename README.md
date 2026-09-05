@@ -2,9 +2,9 @@
 
 ## Live Demo
 
-🔗 **Dashboard:** *Coming Soon*
+🔗 **Dashboard:** [Your Streamlit Dashboard](https://banking-churn-analysis.streamlit.app/)
 
-> The interactive Streamlit dashboard will be deployed upon project completion.
+> An interactive dashboard for exploring customer churn patterns, customer segments, geographic risk, financial behavior, and engagement trends across European banking customers.
 
 ---
 
@@ -151,7 +151,10 @@ customer-segmentation-churn-analytics/
 │
 ├── data/
 │   └── Churn_Modelling.csv
-│
+│   └── assets/
+│       ├── img1 (1).png
+│       ├── img1 (2).png
+│       └── img1 (3).png
 ├── notebooks/
 │   ├── 01_data_cleaning.ipynb
 │   ├── 02_exploratory_data_analysis.ipynb
@@ -268,15 +271,71 @@ Potential future improvements include:
 
 ---
 
-## Dashboard Preview
+## 📊 Dashboard & Analytics Preview
 
-A preview of the dashboard will be added after development.
+The interactive **ChurnScope** dashboard provides multiple analytical views for exploring customer churn across demographic, geographic, financial, and engagement dimensions.
 
-```text
-images/dashboard_preview.png
-```
+### 🏦 Overview & KPI Dashboard
+
+The overview provides a high-level snapshot of customer churn, retention, average balance, and activity levels. It also highlights the highest-risk customer segments and allows users to filter the analysis dynamically.
+
+<img src="data/assets/img1%20(1).png" alt="ChurnScope Overview Dashboard" width="100%">
+
+**Key capabilities:**
+- 📈 Overall churn and retention KPIs
+- 👥 Total, churned, and retained customers
+- 💰 Average customer balance
+- ⚡ Active member percentage
+- 🎯 High-risk segment identification
+- 📦 Churn analysis by number of products
 
 ---
+
+### 🌍 Geographic & Demographic Analysis
+
+The geographic view compares churn rates across **France, Germany, and Spain**, while heatmaps reveal how churn changes across age groups and gender within each country.
+
+<img src="data/assets/img1%20(2).png" alt="Geographic and Demographic Churn Analysis" width="100%">
+
+**Key insights explored:**
+- 🌍 Country-level churn rate
+- 👥 Customer volume by country
+- 🔥 Country × Age Group churn
+- 🚻 Country × Gender churn
+- 📊 Geographic risk exposure
+
+---
+
+### 🎯 Multi-Dimensional Customer Segmentation
+
+The segmentation view combines multiple customer attributes to identify high-risk customer pockets. Bubble size represents the number of churned customers, allowing high-risk segments to be identified more easily.
+
+<img src="data/assets/img1%20(3).png" alt="Multi-Dimensional Customer Segmentation" width="100%">
+
+**Segmentation dimensions include:**
+- 🎂 Age Group
+- 🌍 Geography
+- 💰 Balance Segment
+- ⚡ Activity Status
+- 📅 Tenure
+- 💳 Financial profile
+
+This enables deeper analysis of **which combinations of customer characteristics are associated with elevated churn risk**.
+
+---
+
+### 🔎 Analytical Views
+
+The dashboard is organized into multiple interactive sections:
+
+| Dashboard View | Purpose |
+|---|---|
+| 📊 Overview | Monitor overall churn and key KPIs |
+| 🌍 Geography | Compare churn across countries |
+| 👥 Demographics | Analyze age and gender patterns |
+| 💰 Financial | Explore balance and product-related churn |
+| 📁 Segments | Identify high-risk customer combinations |
+| 💡 Insights | Translate analytical findings into business recommendations |
 
 ## Author
 
