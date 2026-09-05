@@ -2,7 +2,7 @@
 
 ## Live Demo
 
-🔗 **Dashboard:** [Your Streamlit Dashboard](https://banking-churn-analysis.streamlit.app/)
+🔗 **Dashboard:** [ChurnScope](https://banking-churn-analysis.streamlit.app/)
 
 > An interactive dashboard for exploring customer churn patterns, customer segments, geographic risk, financial behavior, and engagement trends across European banking customers.
 
@@ -198,22 +198,6 @@ European-Banking-Churn-Analytics/
 - Matplotlib
 - Seaborn
 - Jupyter Notebook
-
----
-
-## 📷 Dashboard Preview
-
-### Executive Dashboard
-
-> *(Insert dashboard screenshot here)*
-
-### Geographic Analytics
-
-> *(Insert dashboard screenshot here)*
-
-### Customer Segmentation
-
-> *(Insert dashboard screenshot here)*
 
 ---
 
